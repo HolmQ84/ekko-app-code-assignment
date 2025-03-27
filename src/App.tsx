@@ -28,16 +28,12 @@ function App() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Check for mobile view.
 
     const handleAddUser = (user: User) => {
-        if (user.name.trim() && user.email.trim()) {
-            let newUser = {
-                id: Date.now(),
-                name: user.name,
-                email: user.email
-            }
-            setUsers([ ...users, newUser ]);
-        } else {
-            alert("Alle felter skal være udfyldt.")
+        let newUser = {
+            id: Date.now(),
+            name: user.name,
+            email: user.email
         }
+        setUsers([ ...users, newUser ]);
     };
   
     const handleRemoveUser = (id: number) => {

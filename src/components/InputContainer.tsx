@@ -6,9 +6,13 @@ const InputContainer: React.FC<UserProps> = ({ onAdd }) => {
     const [email, setEmail] = useState("");
 
     const handleAddUser = () => {
-        onAdd!({ name: name, email: email })
-        setName("");
-        setEmail("");
+        if (name.trim() && email.trim()) {
+            onAdd!({ name: name, email: email })
+            setName("");
+            setEmail("");
+        } else {
+            alert("Alle felter skal være udfyldt.")
+        }
     }
 
     return (
